@@ -10,7 +10,7 @@
 
 ---
 
-![image-20201026202934255](F:\Netty\img\image-20201026202934255.png)
+![image-20201026202934255](https://github.com/Woodyiiiiiii/Netty_learning/blob/master/img/image-20201026202934255.png)
 
 黄色的框表示对象， 蓝色的框表示线程，白色的框表示方法(API)。
 
@@ -48,13 +48,13 @@ Reactor 对应的叫法: 1. 反应器模式 2. 分发者模式(Dispatcher) 3. �
 
 **单Reactor单线程模式下：**
 
-![image-20201026203408683](F:\Netty\img\image-20201026203408683.png)
+![image-20201026203408683](https://github.com/Woodyiiiiiii/Netty_learning/blob/master/img/image-20201026203408683.png)
 
 
 
 **单Reactor多线程模式下：**
 
-![image-20201026203851265](F:\Netty\img\image-20201026203851265.png)
+![image-20201026203851265](https://github.com/Woodyiiiiiii/Netty_learning/blob/master/img/image-20201026203851265.png)
 
 1. Reactor 对象通过select 监控客户端请求事件, 收到事件后，通过dispatch进行分发
 2. 如果建立连接请求, 则有Acceptor 通过accept 处理连接请求, 然后创建一个Handler对象处理完成连接后的各种事件
@@ -67,7 +67,7 @@ Reactor 对应的叫法: 1. 反应器模式 2. 分发者模式(Dispatcher) 3. �
 
 **主从Reactor多线程：**
 
-![image-20201026204141970](F:\Netty\img\image-20201026204141970.png)
+![image-20201026204141970](https://github.com/Woodyiiiiiii/Netty_learning/blob/master/img/image-20201026204141970.png)
 
 1. Reactor主线程 MainReactor 对象通过select 监听连接事件, 收到事件后，通过Acceptor 处理连接事件
 2. 当 Acceptor 处理连接事件后，MainReactor 将连接分配给SubReactor 
@@ -94,7 +94,7 @@ Netty 主要基于**主从** **Reactors** **多线程模型**（如图）做了�
 
 **原理图如下：**
 
-![image-20201026205516878](F:\Netty\img\image-20201026205516878.png)
+![image-20201026205516878](https://github.com/Woodyiiiiiii/Netty_learning/blob/master/img/image-20201026205516878.png)
 
 1. Netty抽象出两组线程池 BossGroup 专门负责接收客户端的连接, WorkerGroup 专门负责网络的读写
 2. BossGroup 和 WorkerGroup 类型都是 NioEventLoopGroup
